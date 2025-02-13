@@ -10,6 +10,7 @@ import Publications from "../Publications/Publications";
 import Sports from "../Sports/Sports";
 import Gallery from "../Gallery/Gallery";
 import Supervision from "../Supervision/Supervision";
+import Contact from "../Contact/Contact";
 
 const ProfileCard = () => {
   return (
@@ -100,6 +101,10 @@ const ProfileCard = () => {
 
 <div className="w-full mb-2">
   <Supervision/>
+</div>
+
+<div className="w-full mb-5">
+  <Contact/>
 </div>
       </div>
 

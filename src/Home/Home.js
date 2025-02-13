@@ -22,7 +22,7 @@ const Home = () => {
       </button>
 
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#1F509A]">
-  Say Hi from <span className="text-[#E38E49]">Shahab</span>
+  Hi , I am <span className="text-[#E38E49]">Shahab</span>
 </h1>
 
 

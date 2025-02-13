@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { FaBriefcase, FaChalkboardTeacher, FaEdit, FaTrash } from "react-icons/fa";
-import { useInView } from "react-intersection-observer";
+import { useState } from "react"
+import { FaBriefcase, FaChalkboardTeacher } from "react-icons/fa"
+import { useInView } from "react-intersection-observer"
 
 const WorkExperience = () => {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
-  
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
+
   const initialExperience = [
     {
       title: "Lecturer",
@@ -28,8 +28,7 @@ const WorkExperience = () => {
       title: "Lecturer (Contract)",
       company: "Govt Degree College Daggar Buner",
       duration: "September 2016 - September 2017",
-      description:
-        "General administration, Preparing and delivering lectures, invigilating examinations.",
+      description: "General administration, Preparing and delivering lectures, invigilating examinations.",
       icon: <FaChalkboardTeacher />,
       editable: false,
     },
@@ -51,37 +50,42 @@ const WorkExperience = () => {
       icon: <FaBriefcase />,
       editable: false,
     },
-  ];
+  ]
 
-  const [experienceData, setExperienceData] = useState(initialExperience);
-  const [showForm, setShowForm] = useState(false);
-  const [formData, setFormData] = useState({ title: "", company: "", duration: "", description: "" });
-  const [editIndex, setEditIndex] = useState(null);
+  const [experienceData, setExperienceData] = useState(initialExperience)
+  const [showForm, setShowForm] = useState(false)
+  const [formData, setFormData] = useState({ title: "", company: "", duration: "", description: "" })
+  const [editIndex, setEditIndex] = useState(null)
 
   const handleAddExperience = (e) => {
-    e.preventDefault();
-    const newExperience = { ...formData, icon: <FaBriefcase />, editable: true };
+    e.preventDefault()
+    const newExperience = { ...formData, icon: <FaBriefcase />, editable: true }
     if (editIndex !== null) {
-      const updatedExperience = [...experienceData];
-      updatedExperience[editIndex] = newExperience;
-      setExperienceData(updatedExperience);
-      setEditIndex(null);
+      const updatedExperience = [...experienceData]
+      updatedExperience[editIndex] = newExperience
+      setExperienceData(updatedExperience)
+      setEditIndex(null)
     } else {
-      setExperienceData([newExperience, ...experienceData]);
+      setExperienceData([newExperience, ...experienceData])
     }
-    setFormData({ title: "", company: "", duration: "", description: "" });
-    setShowForm(false);
-  };
+    setFormData({ title: "", company: "", duration: "", description: "" })
+    setShowForm(false)
+  }
 
   const handleEdit = (index) => {
-    setFormData(experienceData[index]);
-    setEditIndex(index);
-    setShowForm(true);
-  };
+    setFormData(experienceData[index])
+    setEditIndex(index)
+    setShowForm(true)
+  }
 
-  const handleDelete = (index) => {
-    setExperienceData(experienceData.filter((_, i) => i !== index));
-  };
+  const handleDelete = () => {
+    if (editIndex !== null) {
+      setExperienceData(experienceData.filter((_, i) => i !== editIndex))
+      setEditIndex(null)
+      setShowForm(false)
+      setFormData({ title: "", company: "", duration: "", description: "" })
+    }
+  }
 
   return (
     <div
@@ -91,7 +95,7 @@ const WorkExperience = () => {
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
-      <button 
+      <button
         className="absolute left-4 transform -translate-y-1/2 flex items-center space-x-2 text-gray-800 text-lg font-semibold border-2 border-gray-800 rounded-full px-4 py-2 hover:text-gray-600 transition"
         style={{ top: "-20px" }}
       >
@@ -101,49 +105,84 @@ const WorkExperience = () => {
       <h1 className="text-5xl font-bold text-[#1F509A] text-center mt-20 pt-8">Work Experience</h1>
       <div className="relative border-l-4 border-[#E38E49] pl-6 space-y-6 mt-10">
         {experienceData.map((exp, index) => (
-          <div key={index} className="relative flex items-start space-x-4">
-            <div className="absolute -left-12 bg-[#E38E49] p-3 rounded-full text-white text-xl">
-              {exp.icon}
-            </div>
-            <div className="bg-white shadow-md rounded-lg p-5 border border-[#1F509A] w-full relative">
+          <div key={index} className="relative flex items-start space-x-4" onClick={() => handleEdit(index)}>
+            <div className="absolute -left-12 bg-[#E38E49] p-3 rounded-full text-white text-xl">{exp.icon}</div>
+            <div className="bg-white shadow-md rounded-lg p-5 border border-[#1F509A] w-full relative cursor-pointer hover:bg-gray-50 transition-colors duration-200">
               <h2 className="text-xl font-bold text-gray-900">
                 {exp.company} - {exp.title}
               </h2>
               <p className="text-lg text-gray-900">{exp.duration}</p>
               <p className="text-sm text-gray-700 mt-1">{exp.description}</p>
-              {exp.editable && (
-                <div className="absolute top-3 right-3 flex space-x-3">
-                  <button className="text-blue-500 hover:text-blue-700" onClick={() => handleEdit(index)}>
-                    <FaEdit />
-                  </button>
-                  <button className="text-red-500 hover:text-red-700" onClick={() => handleDelete(index)}>
-                    <FaTrash />
-                  </button>
-                </div>
-              )}
             </div>
           </div>
         ))}
       </div>
       <button
         className="mt-6 px-6 py-2 text-white text-lg rounded-md bg-[#1F509A] hover:bg-[#d67a3b] transition duration-300 w-full"
-        onClick={() => setShowForm(!showForm)}
+        onClick={() => {
+          if (showForm) {
+            setShowForm(false)
+            setEditIndex(null)
+            setFormData({ title: "", company: "", duration: "", description: "" })
+          } else {
+            setShowForm(true)
+            setEditIndex(null)
+            setFormData({ title: "", company: "", duration: "", description: "" })
+          }
+        }}
       >
         {showForm ? "Cancel" : "Add More"}
       </button>
 
       {showForm && (
         <form className="mt-6 bg-gray-100 p-6 rounded-lg shadow-md" onSubmit={handleAddExperience}>
-          <input type="text" placeholder="Position" className="w-full p-2 mb-3 border rounded" value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} required />
-          <input type="text" placeholder="Company" className="w-full p-2 mb-3 border rounded" value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} required />
-          <input type="text" placeholder="Duration" className="w-full p-2 mb-3 border rounded" value={formData.duration} onChange={(e) => setFormData({ ...formData, duration: e.target.value })} required />
-          <textarea placeholder="Description" className="w-full p-2 mb-3 border rounded" value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} required></textarea>
-          <button type="submit" className="w-full bg-[#1F509A] text-white py-2 rounded">{editIndex !== null ? "Update Experience" : "Add Experience"}</button>
+          <input
+            type="text"
+            placeholder="Position"
+            className="w-full p-2 mb-3 border rounded"
+            value={formData.title}
+            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Company"
+            className="w-full p-2 mb-3 border rounded"
+            value={formData.company}
+            onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Duration"
+            className="w-full p-2 mb-3 border rounded"
+            value={formData.duration}
+            onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
+            required
+          />
+          <textarea
+            placeholder="Description"
+            className="w-full p-2 mb-3 border rounded"
+            value={formData.description}
+            onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+            required
+          ></textarea>
+          <div className="flex flex-col space-y-2">
+            <button type="submit" className="w-full bg-[#1F509A] text-white py-2 px-4 rounded">
+              {editIndex !== null ? "Update Experience" : "Add Experience"}
+            </button>
+            {editIndex !== null && (
+              <button type="button" onClick={handleDelete} className="w-full bg-red-500 text-white py-2 px-4 rounded">
+                Delete
+              </button>
+            )}
+          </div>
         </form>
       )}
       <hr className="w-full border-t-2 border-[#E38E49] mt-12" />
     </div>
-  );
-};
+  )
+}
 
-export default WorkExperience;
+export default WorkExperience
+
