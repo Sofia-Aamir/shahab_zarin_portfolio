@@ -32,7 +32,7 @@ const Home = ({ scrollToContact }) => {
 
   <button
     onClick={scrollToContact}
-    className="mt-8 rounded-full bg-[#E38E49] px-8 py-3 text-xl font-bold text-white shadow-lg transition hover:bg-[#1F509A]"
+    className="mt-16 rounded-full bg-[#E38E49] px-8 py-3 text-xl font-bold text-white shadow-lg transition hover:bg-[#1F509A]"
   >
     Let's Connect!
   </button>
