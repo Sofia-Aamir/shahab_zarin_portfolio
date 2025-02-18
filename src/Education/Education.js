@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
-const educationData = [
+const initialEducationData = [
   {
     degree: "MS Computer Science",
-    university: "COMSATS University Islamabad, Abbottabad Campus",
+    university: "COMSATS University Islamabad",
     year: "Year : 2022",
     description: "Specialized in AI and Machine Learning with research in deep learning applications.",
   },
@@ -16,7 +16,7 @@ const educationData = [
     description: "Focused on software development and advanced programming techniques.",
   },
   {
-    degree: "BSc Computer Science, Physics, Math",
+    degree: "BSc Computer Science",
     university: "University of Swat",
     year: "Year : 2013",
     description: "Gained strong foundational knowledge in computing and problem-solving.",
@@ -36,11 +36,59 @@ const educationData = [
 ];
 
 const Education = () => {
+  const [educationData, setEducationData] = useState(initialEducationData);
+  const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState({ degree: "", university: "", year: "", description: "" });
+  const [editIndex, setEditIndex] = useState(null);
   const [openIndex, setOpenIndex] = useState(null);
+
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+
+  const handleAddEducation = (e) => {
+    e.preventDefault();
+    const newEducation = { ...formData };
+
+    if (editIndex !== null) {
+      const updatedEducation = [...educationData];
+      updatedEducation[editIndex] = newEducation;
+      setEducationData(updatedEducation);
+      setEditIndex(null);
+    } else {
+      setEducationData([newEducation, ...educationData]);
+    }
+
+    setFormData({ degree: "", university: "", year: "", description: "" });
+    setShowForm(false);
+  };
+
+  const handleEdit = (index) => {
+    setFormData(educationData[index]);
+    setEditIndex(index);
+    setShowForm(true);
+  };
+
+  const handleDelete = () => {
+    if (editIndex !== null) {
+      setEducationData(educationData.filter((_, i) => i !== editIndex));
+      setEditIndex(null);
+      setShowForm(false);
+      setFormData({ degree: "", university: "", year: "", description: "" });
+    }
+  };
 
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
+    handleEdit(index);
+  };
+
+  const toggleForm = () => {
+    if (showForm) {
+      setShowForm(false);
+      setEditIndex(null);
+      setFormData({ degree: "", university: "", year: "", description: "" });
+    } else {
+      setShowForm(true);
+    }
   };
 
   return (
@@ -75,7 +123,9 @@ const Education = () => {
             >
               <span className="text-black text-center">{item.degree}</span>
               <span className="text-black text-lg text-center">{item.university}</span>
-              <div className="absolute right-5 top-1/2 transform -translate-y-1/2">{openIndex === index ? <FaChevronUp /> : <FaChevronDown />}</div>
+              <div className="absolute right-5 top-1/2 transform -translate-y-1/2">
+                {openIndex === index ? <FaChevronUp /> : <FaChevronDown />}
+              </div>
             </button>
             {openIndex === index && (
               <div className="bg-white p-4 text-gray-700">
@@ -86,6 +136,59 @@ const Education = () => {
           </div>
         ))}
       </div>
+
+      <button
+        className="mt-6 px-6 py-2 text-white text-lg rounded-md bg-[#1F509A] hover:bg-[#d67a3b] transition duration-300 w-full"
+        onClick={toggleForm}
+      >
+        {showForm ? "Cancel" : "Add More"}
+      </button>
+
+      {showForm && (
+        <form className="mt-6 bg-gray-100 p-6 rounded-lg shadow-md" onSubmit={handleAddEducation}>
+          <input
+            type="text"
+            placeholder="Degree"
+            className="w-full p-2 mb-3 border rounded"
+            value={formData.degree}
+            onChange={(e) => setFormData({ ...formData, degree: e.target.value })}
+            required
+          />
+          <input
+            type="text"
+            placeholder="University"
+            className="w-full p-2 mb-3 border rounded"
+            value={formData.university}
+            onChange={(e) => setFormData({ ...formData, university: e.target.value })}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Year"
+            className="w-full p-2 mb-3 border rounded"
+            value={formData.year}
+            onChange={(e) => setFormData({ ...formData, year: e.target.value })}
+            required
+          />
+          <textarea
+            placeholder="Description"
+            className="w-full p-2 mb-3 border rounded"
+            value={formData.description}
+            onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+            required
+          ></textarea>
+          <div className="flex flex-col space-y-2">
+            <button type="submit" className="w-full bg-[#1F509A] text-white py-2 px-4 rounded">
+              {editIndex !== null ? "Update Education" : "Add Education"}
+            </button>
+            {editIndex !== null && (
+              <button type="button" onClick={handleDelete} className="w-full bg-red-500 text-white py-2 px-4 rounded">
+                Delete
+              </button>
+            )}
+          </div>
+        </form>
+      )}
 
       <hr className="w-full border-t-2 border-[#E38E49] mt-12" />
     </div>

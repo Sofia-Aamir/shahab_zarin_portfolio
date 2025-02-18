@@ -27,9 +27,10 @@ const ProfileCard = () => {
           <span className="text-3xl">⚙️</span>
         </div>
 
-        <div className="text-center mt-6">
-          <h1 className="text-5xl font-bold">Shahab</h1>
-          <p className="text-[#D4EBF8] text-2xl mt-2">Lecturer, Computer Science</p>
+        <div className="text-center mt-12">
+          <h1 className="text-3xl font-bold">Syed Shahab Zarin</h1>
+          <p className="text-[#D4EBF8] text-2xl mt-2">Lecturer</p>
+          <p className="text-[#D4EBF8] text-2xl mt-2">Computer Science</p>
         </div>
 
         <div className="mt-8">
@@ -42,7 +43,7 @@ const ProfileCard = () => {
 
         <div className="text-center mt-8">
           <p className="text-2xl">syedshahab@cuiatd.edu.pk</p>
-          <p className="text-[#D4EBF8] text-lg">+92-992-383591-5</p>
+          <p className="text-[#D4EBF8] text-lg">+92-332-9661696</p>
         </div>
 
         <div className="flex justify-center space-x-6 mt-8 text-[#D4EBF8] text-4xl">
