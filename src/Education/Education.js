@@ -5,37 +5,32 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 const educationData = [
   {
     degree: "MS Computer Science",
-    university: "COMSATS University Islamabad",
-    cgpa: "CGPA: 3.14 / 4.00",
-    year: "Year: 2022",
+    university: "COMSATS University Islamabad, Abbottabad Campus",
+    year: "Year : 2022",
     description: "Specialized in AI and Machine Learning with research in deep learning applications.",
   },
   {
     degree: "MSc Computer Science",
     university: "University of Peshawar",
-    marks: "Marks: 841 / 1200",
-    year: "Year: 2016",
+    year: "Year : 2016",
     description: "Focused on software development and advanced programming techniques.",
   },
   {
     degree: "BSc Computer Science, Physics, Math",
     university: "University of Swat",
-    marks: "Marks: 841 / 1200",
-    year: "Year: 2013",
+    year: "Year : 2013",
     description: "Gained strong foundational knowledge in computing and problem-solving.",
   },
   {
     degree: "FSc (Pre-Engineering)",
     university: "SPS College Swat",
-    marks: "Marks: 734 / 1100",
-    year: "Year: 2010",
+    year: "Year : 2010",
     description: "Developed a strong understanding of mathematics and physics.",
   },
   {
     degree: "SSC (Science)",
     university: "Buner Model School Rega",
-    marks: "Marks: 661 / 900",
-    year: "Year: 2008",
+    year: "Year : 2008",
     description: "Early education with a focus on science subjects and critical thinking.",
   },
 ];
@@ -75,17 +70,17 @@ const Education = () => {
             className="border-2 border-[#1F509A] rounded-lg overflow-hidden shadow-md transition-all"
           >
             <button
-              className="w-full flex justify-between items-center px-5 py-4 bg-[#E38E49] text-lg font-semibold"
+              className="w-full flex flex-col items-center px-5 py-4 bg-[#E38E49] text-lg font-semibold relative"
               onClick={() => toggleAccordion(index)}
             >
-              <span className="text-black">{item.degree} - {item.university}</span>
-              {openIndex === index ? <FaChevronUp /> : <FaChevronDown />}
+              <span className="text-black text-center">{item.degree}</span>
+              <span className="text-black text-lg text-center">{item.university}</span>
+              <div className="absolute right-5 top-1/2 transform -translate-y-1/2">{openIndex === index ? <FaChevronUp /> : <FaChevronDown />}</div>
             </button>
             {openIndex === index && (
               <div className="bg-white p-4 text-gray-700">
-                <p className="text-lg font-semibold">{item.cgpa || item.marks}</p>
-                <p className="text-md text-gray-600">{item.year}</p>
-                <p className="text-sm text-gray-500 mt-2 italic">{item.description}</p>
+                <p className="text-lg text-black">{item.year}</p>
+                <p className="text-md text-gray-1000 mt-2 italic">{item.description}</p>
               </div>
             )}
           </div>

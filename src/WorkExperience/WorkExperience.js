@@ -16,32 +16,6 @@ const WorkExperience = () => {
       editable: false,
     },
     {
-      title: "Lecturer (Visiting)",
-      company: "Abdul Wali Khan University Mardan (Buner Campus)",
-      duration: "April 2016 - April 2017",
-      description:
-        "Lecture planning, preparation and research, contact and teaching time with students, attending staff meetings.",
-      icon: <FaChalkboardTeacher />,
-      editable: false,
-    },
-    {
-      title: "Lecturer (Contract)",
-      company: "Govt Degree College Daggar Buner",
-      duration: "September 2016 - September 2017",
-      description: "General administration, Preparing and delivering lectures, invigilating examinations.",
-      icon: <FaChalkboardTeacher />,
-      editable: false,
-    },
-    {
-      title: "Lecturer (Visiting)",
-      company: "University of Buner",
-      duration: "April 2017 - September 2017",
-      description:
-        "Preparing and delivering lectures, contact and teaching time with students, attending staff meetings.",
-      icon: <FaChalkboardTeacher />,
-      editable: false,
-    },
-    {
       title: "Web Developer",
       company: "Techuire",
       duration: "September 2017 - September 2019",
@@ -50,7 +24,34 @@ const WorkExperience = () => {
       icon: <FaBriefcase />,
       editable: false,
     },
-  ]
+    {
+      title: "Lecturer",
+      company: "University of Buner",
+      duration: "April 2017 - September 2017",
+      description:
+        "Preparing and delivering lectures, contact and teaching time with students, attending staff meetings.",
+      icon: <FaChalkboardTeacher />,
+      editable: false,
+    },
+    {
+      title: "Lecturer",
+      company: "Govt Degree College Daggar Buner",
+      duration: "September 2016 - September 2017",
+      description:
+        "General administration, Preparing and delivering lectures, invigilating examinations.",
+      icon: <FaChalkboardTeacher />,
+      editable: false,
+    },
+    {
+      title: "Lecturer",
+      company: "Abdul Wali Khan University Mardan (Buner Campus)",
+      duration: "April 2016 - April 2017",
+      description:
+        "Lecture planning, preparation and research, contact and teaching time with students, attending staff meetings.",
+      icon: <FaChalkboardTeacher />,
+      editable: false,
+    },
+  ];  
 
   const [experienceData, setExperienceData] = useState(initialExperience)
   const [showForm, setShowForm] = useState(false)
@@ -108,11 +109,10 @@ const WorkExperience = () => {
           <div key={index} className="relative flex items-start space-x-4" onClick={() => handleEdit(index)}>
             <div className="absolute -left-12 bg-[#E38E49] p-3 rounded-full text-white text-xl">{exp.icon}</div>
             <div className="bg-white shadow-md rounded-lg p-5 border border-[#1F509A] w-full relative cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-              <h2 className="text-xl font-bold text-gray-900">
-                {exp.company} - {exp.title}
-              </h2>
-              <p className="text-lg text-gray-900">{exp.duration}</p>
-              <p className="text-sm text-gray-700 mt-1">{exp.description}</p>
+              <h2 className="text-xl font-bold text-gray-900"> {exp.title} </h2>
+              <h2 className="text-xl font-bold text-gray-900">{exp.company} </h2>
+              <p className="text-lg text-black">{exp.duration}</p>
+              <p className="text-sm text-gray-1000 mt-2 italic">{exp.description}</p>
             </div>
           </div>
         ))}
