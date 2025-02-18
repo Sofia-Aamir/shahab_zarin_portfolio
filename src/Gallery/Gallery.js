@@ -199,6 +199,7 @@ const Gallery = () => {
           </form>
         </div>
       )}
+       <hr className="w-full border-t-2 border-[#E38E49] mt-12" />
     </section>
   )
 }

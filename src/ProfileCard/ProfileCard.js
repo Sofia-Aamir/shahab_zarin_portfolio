@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { FaLinkedin, FaUniversity } from "react-icons/fa";
-import { SiResearchgate } from "react-icons/si";
+import { SiResearchgate,SiGooglescholar } from "react-icons/si";
 import Home from "../Home/Home";
 import RightMenu from "../RightMenu/RightMenu";
 import AboutUs from "../AboutUs/AboutUs";
@@ -46,15 +46,18 @@ const ProfileCard = () => {
         </div>
 
         <div className="flex justify-center space-x-6 mt-8 text-[#D4EBF8] text-4xl">
+        <a href="https://www.cuiatd.edu.pk/faculty/syed-shahab-zarin/" target="_blank" rel="noopener noreferrer">
+            <FaUniversity className="hover:text-[#E38E49] transition" />
+          </a>
           <a href="https://www.linkedin.com/in/syed-shahab-zarin-0a8b36155/" target="_blank" rel="noopener noreferrer">
             <FaLinkedin className="hover:text-[#E38E49] transition" />
           </a>
           <a href="https://www.researchgate.net/profile/Syed-Zarin" target="_blank" rel="noopener noreferrer">
             <SiResearchgate className="hover:text-[#E38E49] transition" />
           </a>
-          <a href="https://www.cuiatd.edu.pk/faculty/syed-shahab-zarin/" target="_blank" rel="noopener noreferrer">
-            <FaUniversity className="hover:text-[#E38E49] transition" />
-          </a>
+          <a href="https://scholar.google.com/YOUR_PROFILE_ID" target="_blank" rel="noopener noreferrer">
+      <SiGooglescholar className="hover:text-[#E38E49] transition" />
+    </a>
         </div>
 
         <div className="mt-8">

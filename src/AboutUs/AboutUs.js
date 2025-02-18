@@ -9,12 +9,13 @@ const AboutUs = () => {
 
   return (
     <div
-      id="about"
-      ref={ref}
-      className={`flex flex-col items-center px-6 py-10 transition-all duration-1000 ease-in-out will-change-transform ${
-        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
-    >
+    id="about"
+    ref={ref}
+    className={`flex flex-col items-center px-6 py-10 mt-[-220px] transition-all duration-1000 ease-in-out will-change-transform ${
+      inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+    }`}
+  >
+  
       {/* About Button - Positioned above the center */}
       <button className="absolute left-4 transform -translate-y-1/2 flex items-center space-x-2 text-gray-800 text-lg font-semibold border-2 border-gray-800 rounded-full px-4 py-2 hover:text-gray-600 transition" style={{ top: '-20px' }}>
         <span>ℹ️</span> {/* Information Icon */}
