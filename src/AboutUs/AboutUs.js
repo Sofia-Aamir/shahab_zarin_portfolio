@@ -11,7 +11,7 @@ const AboutUs = () => {
     <div
     id="about"
     ref={ref}
-    className={`flex flex-col items-center px-6 py-10 mt-[-200px] transition-all duration-1000 ease-in-out will-change-transform ${
+    className={`flex flex-col items-center px-6 py-10 mt-[-130px] transition-all duration-1000 ease-in-out will-change-transform ${
       inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
     }`}
   >
@@ -24,7 +24,7 @@ const AboutUs = () => {
 
      {/* About Us Section */}
 <div className="flex justify-center items-center text-center space-x-2 mb-10"> {/* Reduced space-x and added mb-2 */}
-  <h1 className="text-5xl font-bold text-[#1F509A]">About Us</h1>
+  <h1 className="text-5xl font-bold text-[#1F509A]">About Me</h1>
 </div>
 
 {/* About Content */}
