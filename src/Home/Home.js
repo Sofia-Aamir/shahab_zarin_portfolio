@@ -19,7 +19,7 @@ const Home = ({ scrollToContact }) => {
         <span>INTRODUCE</span>
       </button>
 
-      <div className="flex flex-col items-center space-y-4 mt-[-250px]">
+      <div className="flex flex-col items-center space-y-4 mt-[-200px]">
   <h1 className="text-4xl font-bold text-[#1F509A] sm:text-5xl md:text-6xl">
     Hi, I am <span className="text-[#E38E49]">Shahab</span>
   </h1>
@@ -39,7 +39,7 @@ const Home = ({ scrollToContact }) => {
 </div>
 
 
-      <hr className="absolute w-full border-t-2 border-[#E38E49] mt-[70px]" />
+      <hr className="absolute w-full border-t-2 border-[#E38E49] mt-[90px]" />
     </section>
   )
 }
