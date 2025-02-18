@@ -11,7 +11,7 @@ const AboutUs = () => {
     <div
     id="about"
     ref={ref}
-    className={`flex flex-col items-center px-6 py-10 mt-[-180px] transition-all duration-1000 ease-in-out will-change-transform ${
+    className={`flex flex-col items-center px-6 py-10 mt-[-200px] transition-all duration-1000 ease-in-out will-change-transform ${
       inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
     }`}
   >

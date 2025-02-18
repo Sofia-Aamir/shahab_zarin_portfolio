@@ -39,7 +39,7 @@ const Home = ({ scrollToContact }) => {
 </div>
 
 
-      <hr className="absolute w-full border-t-2 border-[#E38E49] mt-[90px]" />
+      <hr className="absolute w-full border-t-2 border-[#E38E49] mt-[120px]" />
     </section>
   )
 }
