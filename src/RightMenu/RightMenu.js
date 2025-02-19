@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { FaHome, FaUser, FaGraduationCap, FaBriefcase, FaBook, FaBasketballBall, FaImages, FaChalkboardTeacher, FaPhone } from "react-icons/fa";
+import { FaUser, FaGraduationCap, FaBriefcase, FaBook, FaBasketballBall, FaImages, FaChalkboardTeacher, FaPhone } from "react-icons/fa";
 import { Link } from 'react-scroll';
 
 const SidebarMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { icon: <FaHome />, text: "Home", to: "home" },
     { icon: <FaUser />, text: "About", to: "about" },
     { icon: <FaGraduationCap />, text: "Education", to: "education" },
     { icon: <FaBriefcase />, text: "Experience", to: "experience" },

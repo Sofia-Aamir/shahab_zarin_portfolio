@@ -1,11 +1,11 @@
 "use client"
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import { FaWhatsapp, FaEnvelope, FaFacebook, FaInstagram } from "react-icons/fa";
 
 const Contact = () => {
   const handleSubmit = (e) => {
-    e.preventDefault()
-    // Handle form submission
-  }
+    e.preventDefault();
+  };
 
   return (
     <motion.section
@@ -25,36 +25,24 @@ const Contact = () => {
 
       <h1 className="text-5xl font-bold text-[#1F509A] text-center mt-20 pt-8">Contact Us</h1>
       <p className="text-center text-gray-600 mt-4 mb-12">
-        Feel free to contact us? submit your queries here and we will listen
+        Reach out to us through any platform below!
       </p>
 
-      <div className="grid md:grid-cols-2 gap-8 mb-12">
-        <div className="bg-[#1F509A] text-white p-6 rounded-lg h-[200px] flex flex-col justify-between">
-          <div>
-            <div className="flex items-center space-x-2 mb-2">
-              <span className="text-2xl">📞</span>
-              <span className="font-semibold">Call Me Directly At</span>
-            </div>
-            <h3 className="text-3xl font-bold mb-2">+92 332 9661696</h3>
-          </div>
-          <button className="w-full text-lg bg-white text-[#1F509A] py-2 rounded-md hover:bg-gray-100 transition duration-300">
-            Contact Me
-          </button>
-        </div>
-
-        <div className="bg-gray-100 p-6 rounded-lg h-[200px] flex flex-col justify-between">
-          <div>
-            <div className="flex items-center space-x-2 mb-2">
-              <span className="text-2xl">💬</span>
-              <span className="font-semibold">Chat With Me</span>
-            </div>
-            <h3 className="text-xl font-bold mb-2">syedshahab@cuiatd.edu.pk</h3>
-          </div>
-          <button className="w-full text-lg bg-[#1F509A] text-white py-2 rounded-md hover:bg-[#174080] transition duration-300">
-            Contact Me
-          </button>
-        </div>
+      <div className="flex justify-center space-x-6 text-4xl text-[#1F509A] mt-[-20px] mb-8">
+        <a href="https://wa.me/923329661696" target="_blank" rel="noopener noreferrer" className="hover:text-green-500">
+          <FaWhatsapp />
+        </a>
+        <a href="syedshahab@cuiatd.edu.pk" className="hover:text-red-500">
+          <FaEnvelope />
+        </a>
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
+          <FaFacebook />
+        </a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500">
+          <FaInstagram />
+        </a>
       </div>
+
 
       <motion.form
         className="space-y-6 flex flex-col"
@@ -105,8 +93,7 @@ const Contact = () => {
 
       <hr className="w-full border-t-2 border-[#E38E49] mt-12" />
     </motion.section>
-  )
-}
+  );
+};
 
-export default Contact
-
+export default Contact;

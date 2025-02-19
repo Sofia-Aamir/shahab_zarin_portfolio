@@ -15,8 +15,8 @@ const initialProjects = [
     name: "IoT-based Honeypot Network for Cybersecurity Threat Detection and Attack Analysis",
     students: [
       { name: "Zakirullah Salar", regNo: "CIIT/FA21-BCS-186/ATD" },
-      { name: "Salim", regNo: "CIIT/FA21-BCS-186/ATD" },
-      { name: "Mohammad Zahid Rehmat", regNo: "CIIT/FA21-BCS-186/ATD" },
+      { name: "Salim", regNo: "CIIT/FA21-BCS-193/ATD" },
+      { name: "Mohammad Zahid Rehmat", regNo: "CIIT/FA21-BCS-222/ATD" },
     ],
     readMoreLink: "",
     file: null,

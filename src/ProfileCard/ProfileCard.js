@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { FaLinkedin, FaUniversity } from "react-icons/fa";
 import { SiResearchgate,SiGooglescholar } from "react-icons/si";
-import Home from "../Home/Home";
 import RightMenu from "../RightMenu/RightMenu";
 import AboutUs from "../AboutUs/AboutUs";
 import Education from "../Education/Education";
@@ -77,12 +76,12 @@ const ProfileCard = () => {
 
       {/* Main Content Section */}
       <div className="flex-1 flex flex-col items-center lg:ml-[30%] lg:mr-[15%]">
-        <div className="w-full h-screen">
+        {/* <div className="w-full h-screen">
           <Home scrollToContact={scrollToContact} />
-        </div>
+        </div> */}
 
         <div className="w-full mb-2">
-          <AboutUs />
+          <AboutUs scrollToContact={scrollToContact} />
         </div>
 
         <div className="w-full mb-2">
