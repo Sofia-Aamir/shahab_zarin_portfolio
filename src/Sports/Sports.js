@@ -83,7 +83,7 @@ const Sports = () => {
         <span>SPORTS</span>
       </button>
 
-      <h1 className="text-5xl font-bold text-[#1F509A] text-center mt-20 pt-8">Sports Achievements</h1>
+      <h1 className="text-5xl font-bold text-[#1F509A] text-center mt-20 pt-8">Sports</h1>
 
       {Object.entries(sportsData).map(([category, data]) => (
         <div key={category} className="mt-12">
